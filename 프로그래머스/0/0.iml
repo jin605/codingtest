@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/120802. 두 수의 합 구하기" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/120803. 두 수의 차 구하기" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/120804. 두 수의 곱 구하기" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/120805. 몫 구하기" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/120806. 두 수의 나눗셈" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/120807. 숫자 비교하기" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/120810. 나머지 구하기" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/120820. 나이 출력" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/120830. 양꼬치" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/120831. 짝수의 합" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/250128. ［PCCE 기출문제］ 6번 ／ 가채점" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/250132. ［PCCE 기출문제］ 2번 ／ 피타고라스의 정리" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/340202. ［PCCE 기출문제］ 6번 ／ 물 부족" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/340205. ［PCCE 기출문제］ 3번 ／ 수 나누기" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
