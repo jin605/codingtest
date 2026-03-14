@@ -11,40 +11,49 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
 
-        for (int i = 0 ; i < n; i++) {
 
-            String ps = br.readLine();
-
+        for (int i = 0; i < n; i ++){
+            
             Deque<Character> stk = new ArrayDeque<>();
+         
 
-            for (int j = 0; j < ps.length(); j++) {
+            String line = br.readLine();
 
-                char c = ps.charAt(j);
+            for (int j = 0 ; j < line.length(); j++) {
+
+                char c = line.charAt(j);
 
                 if (c == '(') {
 
                     stk.offerFirst(c);
 
-                }
-                else if (c == ')') {
+                } else {
 
                     if (stk.isEmpty() || stk.peekFirst() == ')') {
                         stk.offerFirst(c);
                         break;
                     }
+
                     stk.pollFirst();
+
                 }
 
+
             }
+
             if (stk.isEmpty()) {
                 sb.append("YES").append("\n");
             } else {
                 sb.append("NO").append("\n");
+
             }
 
         }
 
         System.out.println(sb);
+
+
+
 
 
 
