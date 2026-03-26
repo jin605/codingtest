@@ -13,6 +13,7 @@
       <sourceFolder url="file://$MODULE_DIR$/10810. 공 넣기" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/10811. 바구니 뒤집기" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/10813. 공 바꾸기" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/10817. 세 수" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/10818. 최소， 최대" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/10869. 사칙연산" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/10872. 팩토리얼" isTestSource="false" />
@@ -53,6 +54,7 @@
       <sourceFolder url="file://$MODULE_DIR$/2738. 행렬 덧셈" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2739. 구구단" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2741. N 찍기" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/2742. 기찍 N" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2743. 단어 길이 재기" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2744. 대소문자 바꾸기" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2748. 피보나치 수 2" isTestSource="false" />
