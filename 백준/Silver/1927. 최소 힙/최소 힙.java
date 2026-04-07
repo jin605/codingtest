@@ -5,12 +5,13 @@ import java.util.PriorityQueue;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
         int t = Integer.parseInt(br.readLine());
 
-        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        PriorityQueue<Integer> que = new PriorityQueue<>();
 
         for (int i = 0; i < t; i++) {
 
@@ -18,16 +19,17 @@ public class Main {
 
             if (x > 0) {
 
-                minHeap.offer(x);
+                que.offer(x);
 
             } else {
-                
-                if (minHeap.isEmpty()) {
-                    
+
+                if (que.isEmpty()) {
+
                     sb.append(0).append("\n");
                 } else {
 
-                    sb.append(minHeap.poll()).append("\n");
+                    sb.append(que.poll()).append("\n");
+
                 }
             }
         }
@@ -35,4 +37,5 @@ public class Main {
         System.out.println(sb);
 
     }
+
 }
