@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Arrays;
 
 class Solution {
     public int[] solution(int[] array, int[][] commands) {
@@ -7,24 +7,20 @@ class Solution {
         
         for (int i = 0; i < commands.length; i++) {
             
-            int start = commands[i][0];
-            int end = commands[i][1]; 
-            int target = commands[i][2]; 
+            int st = commands[i][0] - 1;
+            int end = commands[i][1] - 1;
+            int index = commands[i][2] - 1;
             
-            ArrayList<Integer> list = new ArrayList<>();
+            int[] temp = new int[end-st+1];
             
-            for (int j = start-1; j < end; j++) {
+            for (int j = 0; j < temp.length; j++) {
                 
-                list.add(array[j]);
-                
+                    temp[j] = array[st+j];
             }
             
-            list.sort(Comparator.naturalOrder());
-            answer[i] = list.get(target-1);
-                
-                
+            Arrays.sort(temp);
+            answer[i] = temp[index];
         }
-        
         
         return answer;
     }
