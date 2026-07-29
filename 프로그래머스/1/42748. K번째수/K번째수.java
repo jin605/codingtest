@@ -11,15 +11,14 @@ class Solution {
             int end = commands[i][1] - 1;
             int index = commands[i][2] - 1;
             
-            int[] temp = new int[end-st+1];
-            
-            for (int j = 0; j < temp.length; j++) {
-                
-                    temp[j] = array[st+j];
-            }
-            
+            int[] temp = Arrays.copyOfRange(array, st, end+1);
             Arrays.sort(temp);
+            
+            System.out.println(Arrays.toString(temp));
+            
             answer[i] = temp[index];
+            
+            
         }
         
         return answer;
