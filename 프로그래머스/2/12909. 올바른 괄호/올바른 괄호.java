@@ -1,34 +1,30 @@
-import java.util.*;
+import java.util.Deque;
+import java.util.ArrayDeque;
 
 class Solution {
     boolean solution(String s) {
-        
-        Deque<Character>que = new ArrayDeque<>();
         boolean answer = false;
         
-        for(int i = 0; i < s.length(); i++) {
-            Character cur = s.charAt(i);
+        Deque <Character> queue = new ArrayDeque<>();
+        
+        for (int i = 0; i < s.length(); i++) {
             
-            if (cur == '('){
-                que.offerFirst(cur);
+            char cur = s.charAt(i);
+            if (s.charAt(0) == ')') {
+                return false;
+            }
+            if (cur == '(') {
+                queue.offerFirst(cur);
                 
             } else {
-                if (que.isEmpty()) {
-                    return answer;
-                }
-                Character peek = que.peekFirst();
-                
-                if (peek == ')') {
-                    return answer;
-                } else {
-                    que.pollFirst();
-                }
+                queue.pollFirst();
             }
-            
         }
-        if (que.isEmpty()) {
-            answer = true;
+        
+        if (queue.isEmpty()) {
+            return true;
         }
+
         return answer;
     }
 }
