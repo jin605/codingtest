@@ -1,29 +1,52 @@
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 class Solution {
+
     public int solution(int[] priorities, int location) {
-        
-        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
-        for (int q : priorities) {
-            pq.offer(q);
+
+        Deque<Process> queue = new ArrayDeque<>();
+
+        for (int i = 0; i < priorities.length; i++) {
+            queue.offer(new Process(i, priorities[i]));
         }
-        
-        int answer = 0;
-        while(!pq.isEmpty()) {
-            
-            for (int i = 0; i < priorities.length; i++) {
-                
-                int cur = pq.peek();
-                if (cur == priorities[i]) {
-                    pq.poll();
-                    answer++;
-                    
-                    if (location == i) {
-                        return answer;
-                    }
+
+        int order = 0;
+
+        while (!queue.isEmpty()) {
+
+            Process current = queue.poll();
+
+            boolean hasHigherPriority = false;
+
+            for (Process process : queue) {
+                if (process.priority > current.priority) {
+                    hasHigherPriority = true;
+                    break;
+                }
+            }
+
+            if (hasHigherPriority) {
+                queue.offer(current);
+            } else {
+                order++;
+
+                if (current.index == location) {
+                    return order;
                 }
             }
         }
-        return answer;
+
+        return -1;
+    }
+
+    static class Process {
+        int index;
+        int priority;
+
+        Process(int index, int priority) {
+            this.index = index;
+            this.priority = priority;
+        }
     }
 }
