@@ -1,4 +1,4 @@
-
+import java.util.HashMap;
 import java.util.*;
 
 class Solution {
@@ -7,16 +7,15 @@ class Solution {
         HashMap<String, Integer> genresMap = new HashMap<>();
 
         for (int i = 0; i < genres.length; i++) {
-            genresMap.put(
-                genres[i],
-                genresMap.getOrDefault(genres[i], 0) + plays[i]
-            );
+
+            genresMap.put(genres[i], genresMap.getOrDefault(genres[i],0) + plays[i]);
+
         }
+        
+        ArrayList<Integer> result = new ArrayList<>();
 
-        ArrayList<Integer> answer = new ArrayList<>();
-
+        
         while (!genresMap.isEmpty()) {
-
             int max = -1;
             String maxGenre = "";
 
@@ -26,41 +25,44 @@ class Solution {
                     maxGenre = genre;
                 }
             }
-
-            int first = -1;
-            int second = -1;
+            
+            int firPlays = -1;
+            int secPlays = -1;
+            int index = -1;
+            int secIndex = -1;
 
             for (int i = 0; i < genres.length; i++) {
 
-                if (!genres[i].equals(maxGenre)) {
+                if (genres[i].equals(maxGenre) && plays[i] > firPlays) {
+                    firPlays = plays[i];
+                    index = i;
+                }
+            }
+            result.add(index);
+            
+            for (int j = 0; j < genres.length; j++) {
+                if (j == index) {
                     continue;
                 }
-
-                if (first == -1 || plays[i] > plays[first]) {
-                    second = first;
-                    first = i;
-                } else if (second == -1 || plays[i] > plays[second]) {
-                    second = i;
+                
+                if (genres[j].equals(maxGenre) && plays[j] > secPlays) {
+                    secPlays = plays[j];
+                    secIndex = j;
                 }
+                
             }
-
-            if (first != -1) {
-                answer.add(first);
+            if (secIndex != -1) {
+                
+                result.add(secIndex);   
             }
-
-            if (second != -1) {
-                answer.add(second);
-            }
-
             genresMap.remove(maxGenre);
+
         }
-
-        int[] result = new int[answer.size()];
-
-        for (int i = 0; i < answer.size(); i++) {
-            result[i] = answer.get(i);
+        
+        int[] answer = new int[result.size()];
+        for (int i = 0; i< result.size(); i++) {
+            answer[i] = result.get(i);
         }
-
-        return result;
+        return answer;
     }
 }
