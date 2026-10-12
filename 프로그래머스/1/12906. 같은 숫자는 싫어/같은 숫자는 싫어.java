@@ -2,26 +2,22 @@ import java.util.*;
 
 public class Solution {
     public int[] solution(int []arr) {
-        
-        Deque <Integer> que = new ArrayDeque<>();
-        
+
+        ArrayDeque <Integer> queue = new ArrayDeque<>();
+
         for (int i = 0; i < arr.length; i++) {
-            
-            int cur = arr[i];
-            if (que.isEmpty() || que.peekLast() != cur) {
-                que.offerLast(cur);
-            } 
-            
+            int target = arr[i];
+            if (queue.isEmpty() || queue.peek() != target) {
+                queue.push(target);
+            }
+        }
+        int[] answer = new int[queue.size()];
+        int j = queue.size()-1; 
+        for (int num : queue) {
+            answer[j] = num;
+            j--;
         }
         
-        int[] answer = new int[que.size()];
-        
-        for (int i = 0; i < answer.length; i++) {
-            answer[i] = que.pollFirst();
-        }
-            
         return answer;
-        
-        
     }
 }
