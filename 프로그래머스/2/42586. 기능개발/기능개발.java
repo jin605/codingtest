@@ -1,39 +1,45 @@
-import java.util.*;
+import java.util.ArrayList;
 
 class Solution {
     public int[] solution(int[] progresses, int[] speeds) {
-        
-        List<Integer> answerList = new ArrayList<>();
-        int idx = 0;
-        
-        while(idx < progresses.length) {
-            
-            for (int i = idx; i < progresses.length; i++) {
+
+        ArrayList<Integer> solList = new ArrayList<>();
+
+        int index = 0;
+        while (index < progresses.length) {
+
+            int target = 0;
+
+            for (int i = index; i < progresses.length; i++) {
                 progresses[i] += speeds[i];
             }
-            
-            int count = 0 ;
-            
-            while (idx < progresses.length && progresses[idx] >= 100) {
-                
-                idx++;
-                count++;
-                
+
+            if (progresses[index] >= 100) {
+
+                index++;
+                target++;
+
+                for (int j = index; j < progresses.length; j++) {
+                    if (progresses[j] >= 100) {
+                        index++;
+                        target++;
+                    } else {
+                        break;
+                    }
+                }
+
+                solList.add(target);
             }
-            
-            if (count > 0 ) {
-                answerList.add(count);
-            }
-            
-            
         }
-        int answer[] = new int[answerList.size()];
-        
-        for (int i = 0 ; i < answerList.size(); i++) {
-            answer[i] = answerList.get(i);
+
+        int[] answer = new int[solList.size()];
+
+        int i = 0;
+        for (int tar : solList) {
+            answer[i++] = tar;
         }
-        
-        
+
         return answer;
+
     }
 }
