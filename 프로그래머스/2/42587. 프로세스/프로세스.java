@@ -1,52 +1,44 @@
 import java.util.ArrayDeque;
-import java.util.Deque;
 
 class Solution {
-
     public int solution(int[] priorities, int location) {
 
-        Deque<Process> queue = new ArrayDeque<>();
+        ArrayDeque<int[]> que = new ArrayDeque<>();
 
-        for (int i = 0; i < priorities.length; i++) {
-            queue.offer(new Process(i, priorities[i]));
+        int index = 0;
+        for (int pri : priorities) {
+            que.offerLast(new int[]{pri,index++});
         }
 
-        int order = 0;
+        int answer = 0;
 
-        while (!queue.isEmpty()) {
+        while(!que.isEmpty()) {
 
-            Process current = queue.poll();
-
-            boolean hasHigherPriority = false;
-
-            for (Process process : queue) {
-                if (process.priority > current.priority) {
-                    hasHigherPriority = true;
-                    break;
+            int maxPri = 0;
+            for (int[] pri : que) {
+                int curPri = pri[0];
+                if (curPri > maxPri) {
+                    maxPri = curPri;
                 }
             }
 
-            if (hasHigherPriority) {
-                queue.offer(current);
+            int[] target =  que.pollFirst();
+            if (target[0] == maxPri) {
+                answer++;
+
+                if (target[1] == location) {
+                    return answer;
+                }
+                
             } else {
-                order++;
-
-                if (current.index == location) {
-                    return order;
-                }
+                que.offerLast(target);
             }
+
+
         }
 
-        return -1;
-    }
+        return answer;
 
-    static class Process {
-        int index;
-        int priority;
 
-        Process(int index, int priority) {
-            this.index = index;
-            this.priority = priority;
-        }
     }
 }
