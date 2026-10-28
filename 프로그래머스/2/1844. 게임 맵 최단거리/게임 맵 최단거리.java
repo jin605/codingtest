@@ -1,51 +1,59 @@
-import java.util.*;
+import java.util.ArrayDeque;
 
 class Solution {
-    // x를 행(row), y를 열(column)로 통일해서 생각합시다.
-    int[] dr = {1, -1, 0, 0};
-    int[] dc = {0, 0, 1, -1};
     
-    private static class Pair {
-        int r, c;
-        Pair(int r, int c) {
-            this.r = r;
-            this.c = c;
-        }
-    }
+    int[] dx = {1,-1,0,0};
+    int[] dy = {0,0,1,-1};
+    int[][] maps;
+    boolean[][] visited;
     
     public int solution(int[][] maps) {
-        int n = maps.length;    // 세로 길이 (행)
-        int m = maps[0].length; // 가로 길이 (열)
         
-        int[][] vis = new int[n][m];
-        for (int i = 0; i < n; i++) {
-            Arrays.fill(vis[i], -1);
-        }
+        this.maps = maps;
         
-        // Deque는 ArrayDeque가 가장 빠르고 안정적입니다.
-        Queue<Pair> q = new ArrayDeque<>();
+        ArrayDeque<Point> que = new ArrayDeque<>();
+        visited = new boolean[maps.length][maps[0].length];
         
-        vis[0][0] = 1; 
-        q.offer(new Pair(0, 0));
+        que.offerLast(new Point(0,0,1));
+        visited[0][0] = true;
+        int answer = -1;
         
-        while (!q.isEmpty()) {
-            Pair cur = q.poll();
+        while(!que.isEmpty()) {
             
-            for (int i = 0; i < 4; i++) {
-                int nr = cur.r + dr[i];
-                int nc = cur.c + dc[i];
+            
+            Point cur = que.pollFirst();
+            int x = cur.x;
+            int y = cur.y;
+            int dist = cur.dist;
+            
+            if (x == maps.length-1 && y == maps[0].length-1) return dist;
+            
+            for (int i = 0; i < dx.length; i++) {
                 
-                // 1. 범위 체크 (n, m 기준 확인)
-                if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-                // 2. 벽 체크 및 방문 여부 체크
-                if (maps[nr][nc] == 0 || vis[nr][nc] != -1) continue;
+                int nx = x + dx[i];
+                int ny = y + dy[i];
                 
-                vis[nr][nc] = vis[cur.r][cur.c] + 1;
-                q.offer(new Pair(nr, nc));
+                if (nx < 0 || ny < 0 || nx >= maps.length || ny >= maps[0]. length) continue;
+                
+                if (!visited[nx][ny] && maps[nx][ny] == 1) {
+                    
+                    que.offerLast(new Point(nx,ny,dist+1));
+                    visited[nx][ny] = true;
+                }
             }
         }
+        return answer;
+    }
+    
+    class Point {
+        int x;
+        int y;
+        int dist;
         
-        // 최종 목적지 (n-1, m-1) 리턴
-        return vis[n - 1][m - 1];
+        Point (int x, int y, int dist) {
+            this.x = x;
+            this.y = y;
+            this.dist = dist;
+        }
     }
 }
