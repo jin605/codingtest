@@ -1,35 +1,32 @@
 class Solution {
     
-    int[] numbers;
     int target;
-    int index = 0;
-    int sum = 0;
+    int[] numbers;
     int answer = 0;
     
     public int solution(int[] numbers, int target) {
         
         this.numbers = numbers;
         this.target = target;
-
-        dfs(index, sum);
+        
+        dfs(0,0);
         
         return answer;
+        
     }
     
-    void dfs (int index, int sum) {
+    void dfs(int sum, int count) {
         
-        if (index == numbers.length) {
-            
-            if (sum == target) {
-                answer++;
-            }   
-            
+        if (sum == target && count == numbers.length) {
+            answer++;
+        }
+        
+        if (count == numbers.length) {
             return;
         }
         
-        dfs (index + 1, sum + numbers[index]);
-        dfs (index + 1, sum - numbers[index]);
-    }   
+        dfs(sum + numbers[count], count+1);
+        dfs(sum - numbers[count], count+1);
+        
+    }
 }
-
-
