@@ -15,7 +15,6 @@ class Solution {
         int answer = -1;
         
         que.offerLast(new Point(0,0,1));
-        visited[0][0] = true;
         
         while (!que.isEmpty()) {
             
