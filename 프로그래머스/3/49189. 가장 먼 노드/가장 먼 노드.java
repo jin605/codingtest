@@ -19,7 +19,6 @@ class Solution {
 
         int[] dist = new int[n + 1];
         Arrays.fill(dist, -1);
-
         ArrayDeque<Integer> queue = new ArrayDeque<>();
         queue.offer(1);
         dist[1] = 0;
@@ -49,7 +48,6 @@ class Solution {
                 answer++;
             }
         }
-
         return answer;
     }
 }
