@@ -71,7 +71,6 @@ class Solution
                 int command = sc.nextInt();
                 int a = sc.nextInt();
                 int b = sc.nextInt();
-                
                 if (command == 0) union(a,b);
                 else sb.append(detect(a,b));
             }
