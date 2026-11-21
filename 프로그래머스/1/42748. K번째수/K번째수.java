@@ -25,9 +25,9 @@ class Solution {
                     }
                 
             }
-
-                
             }
+            
+            
             System.out.println(Arrays.toString(newArray));
             answer[i] = newArray[target-1];
 
