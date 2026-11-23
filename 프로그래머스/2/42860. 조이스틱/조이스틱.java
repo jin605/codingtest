@@ -9,7 +9,6 @@ class Solution {
             int down = 'Z' - name.charAt(i) + 1;
             vertical += Math.min(up, down);
 
-            // i 다음에 연속된 A를 건너뛴다.
             int next = i + 1;
             while (next < n && name.charAt(next) == 'A') {
                 next++;
