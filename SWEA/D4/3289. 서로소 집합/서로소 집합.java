@@ -58,6 +58,7 @@ class Solution
 
 		for(int test_case = 1; test_case <= T; test_case++)
 		{
+            
             StringBuilder sb = new StringBuilder();
             int n = sc.nextInt();
             int m = sc.nextInt();
@@ -83,6 +84,8 @@ class Solution
         }
         return x;
     }
+    
+    
     static void union (int a, int b) {
         int rootA = find(a);
         int rootB = find(b);
@@ -92,7 +95,6 @@ class Solution
         
         parent[max] = min;
     }
-    
     static int detect(int a, int b) {
         int rootA = find(a);
         int rootB = find(b);
